@@ -1,0 +1,275 @@
+\hypertarget{classwebprueba_1_1_confirmar}{}\section{Referencia de la Clase webprueba.\+Confirmar}
+\label{classwebprueba_1_1_confirmar}\index{webprueba.Confirmar@{webprueba.Confirmar}}
+Diagrama de herencias de webprueba.\+Confirmar\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwebprueba_1_1_confirmar}
+\end{center}
+\end{figure}
+\subsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}{Page\+\_\+\+Load}} (object sender, Event\+Args e)
+\item 
+void \mbox{\hyperlink{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}{Page\+\_\+\+Unload}} (object sender, Event\+Args e)
+\item 
+void \mbox{\hyperlink{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}{Page\+\_\+\+Load}} (object sender, Event\+Args e)
+\item 
+void \mbox{\hyperlink{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}{Page\+\_\+\+Unload}} (object sender, Event\+Args e)
+\end{DoxyCompactItemize}
+\subsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+global\+::\+System.\+Web.\+U\+I.\+Html\+Controls.\+Html\+Form \mbox{\hyperlink{classwebprueba_1_1_confirmar_a4f6e23fc2d700229b3eecbabe696393c}{form1}}
+\begin{DoxyCompactList}\small\item\em form1 control. \end{DoxyCompactList}\item 
+global\+::\+System.\+Web.\+U\+I.\+Web\+Controls.\+Label \mbox{\hyperlink{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}{lbl\+Succes}}
+\begin{DoxyCompactList}\small\item\em lbl\+Succes control. \end{DoxyCompactList}\item 
+global\+::\+System.\+Web.\+U\+I.\+Web\+Controls.\+Label \mbox{\hyperlink{classwebprueba_1_1_confirmar_a356770e3d6653a1bfc13c855989a858b}{lbl\+Error}}
+\begin{DoxyCompactList}\small\item\em lbl\+Error control. \end{DoxyCompactList}\item 
+global\+::\+System.\+Web.\+U\+I.\+Web\+Controls.\+Hyper\+Link \mbox{\hyperlink{classwebprueba_1_1_confirmar_a36dc790fef42876a20f279fac79ec0db}{Hyper\+Link1}}
+\begin{DoxyCompactList}\small\item\em Hyper\+Link1 control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+Definición en la línea 12 del archivo Confirmar.\+aspx.\+cs.
+
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}\label{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!Page\_Load@{Page\_Load}}
+\index{Page\_Load@{Page\_Load}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{Page\_Load()}{Page\_Load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void webprueba.\+Confirmar.\+Page\+\_\+\+Load (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definición en la línea 15 del archivo Confirmar.\+aspx.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{18             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ae76180c27e16450efd4d6121534f1acb}{conectar}}();}
+\DoxyCodeLine{19             \textcolor{keywordtype}{bool} correcto = \textcolor{keyword}{false};}
+\DoxyCodeLine{20             \textcolor{keywordtype}{string} dirCorreo = Request[\textcolor{stringliteral}{"correo"}];}
+\DoxyCodeLine{21             \textcolor{keywordtype}{string} num = Request[\textcolor{stringliteral}{"numconf"}];}
+\DoxyCodeLine{22             \textcolor{keywordtype}{int} numInt = Int32.Parse(num);}
+\DoxyCodeLine{23             \textcolor{keywordtype}{string} select = \textcolor{stringliteral}{"select * from Usuarios where email=@correo"};}
+\DoxyCodeLine{24             SqlCommand comando1 = \textcolor{keyword}{new} SqlCommand(select, ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_a1932eb53bebc0d2002cc3c40e21f9385}{conexion}});}
+\DoxyCodeLine{25             comando1.Parameters.AddWithValue(\textcolor{stringliteral}{"@correo"}, dirCorreo);}
+\DoxyCodeLine{26             SqlDataReader dr = comando1.ExecuteReader();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28             \textcolor{keywordflow}{while} (dr.Read())}
+\DoxyCodeLine{29             \{}
+\DoxyCodeLine{30                 \textcolor{keywordtype}{int} numDR = Convert.ToInt32(dr[\textcolor{stringliteral}{"numconfir"}]);}
+\DoxyCodeLine{31                 \textcolor{keywordflow}{if} (numDR == numInt)}
+\DoxyCodeLine{32                 \{}
+\DoxyCodeLine{33                     correcto = \textcolor{keyword}{true};}
+\DoxyCodeLine{34                 \}}
+\DoxyCodeLine{35             \}}
+\DoxyCodeLine{36             dr.Close();}
+\DoxyCodeLine{37             comando1.Dispose();}
+\DoxyCodeLine{38             \textcolor{keywordflow}{if} (correcto)}
+\DoxyCodeLine{39             \{}
+\DoxyCodeLine{40                 \textcolor{keywordtype}{int} num1 = 1;}
+\DoxyCodeLine{41                 \textcolor{keywordtype}{string} update = \textcolor{stringliteral}{"update Usuarios set confirmado='"} + num1 + \textcolor{stringliteral}{"' where email='"} + dirCorreo + \textcolor{stringliteral}{"' and numconfir='"} + numInt + \textcolor{stringliteral}{"'"};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43                 SqlCommand comandoUpdate = \textcolor{keyword}{new} SqlCommand(update, ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_a1932eb53bebc0d2002cc3c40e21f9385}{conexion}});}
+\DoxyCodeLine{44                 comandoUpdate.ExecuteNonQuery();}
+\DoxyCodeLine{45                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}{lblSucces}}.Visible = \textcolor{keyword}{true};}
+\DoxyCodeLine{46                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_a36dc790fef42876a20f279fac79ec0db}{HyperLink1}}.NavigateUrl = \textcolor{stringliteral}{"~/Inicio.aspx?correo="}+dirCorreo;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48             \}}
+\DoxyCodeLine{49             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{50             \{}
+\DoxyCodeLine{51                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_a356770e3d6653a1bfc13c855989a858b}{lblError}}.Visible = \textcolor{keyword}{true};}
+\DoxyCodeLine{52                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}{lblSucces}}.Visible = \textcolor{keyword}{false};}
+\DoxyCodeLine{53             \}}
+\DoxyCodeLine{54             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{55         \}}
+
+\end{DoxyCode}
+
+
+Hace referencia a acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+cerrar\+Conexion(), acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+conectar(), acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+conexion, webprueba.\+Confirmar.\+Hyper\+Link1, webprueba.\+Confirmar.\+lbl\+Error y webprueba.\+Confirmar.\+lbl\+Succes.
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}\label{classwebprueba_1_1_confirmar_a6fada9c94bfc49a7b14f0e9572cd3532}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!Page\_Load@{Page\_Load}}
+\index{Page\_Load@{Page\_Load}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{Page\_Load()}{Page\_Load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void webprueba.\+Confirmar.\+Page\+\_\+\+Load (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definición en la línea 15 del archivo Confirmar.\+aspx.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{18             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ae76180c27e16450efd4d6121534f1acb}{conectar}}();}
+\DoxyCodeLine{19             \textcolor{keywordtype}{bool} correcto = \textcolor{keyword}{false};}
+\DoxyCodeLine{20             \textcolor{keywordtype}{string} dirCorreo = Request[\textcolor{stringliteral}{"correo"}];}
+\DoxyCodeLine{21             \textcolor{keywordtype}{string} num = Request[\textcolor{stringliteral}{"numconf"}];}
+\DoxyCodeLine{22             \textcolor{keywordtype}{int} numInt = Int32.Parse(num);}
+\DoxyCodeLine{23             \textcolor{keywordtype}{string} select = \textcolor{stringliteral}{"select * from Usuarios where email=@correo"};}
+\DoxyCodeLine{24             SqlCommand comando1 = \textcolor{keyword}{new} SqlCommand(select, ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_a1932eb53bebc0d2002cc3c40e21f9385}{conexion}});}
+\DoxyCodeLine{25             comando1.Parameters.AddWithValue(\textcolor{stringliteral}{"@correo"}, dirCorreo);}
+\DoxyCodeLine{26             SqlDataReader dr = comando1.ExecuteReader();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28             \textcolor{keywordflow}{while} (dr.Read())}
+\DoxyCodeLine{29             \{}
+\DoxyCodeLine{30                 \textcolor{keywordtype}{int} numDR = Convert.ToInt32(dr[\textcolor{stringliteral}{"numconfir"}]);}
+\DoxyCodeLine{31                 \textcolor{keywordflow}{if} (numDR == numInt)}
+\DoxyCodeLine{32                 \{}
+\DoxyCodeLine{33                     correcto = \textcolor{keyword}{true};}
+\DoxyCodeLine{34                 \}}
+\DoxyCodeLine{35             \}}
+\DoxyCodeLine{36             dr.Close();}
+\DoxyCodeLine{37             comando1.Dispose();}
+\DoxyCodeLine{38             \textcolor{keywordflow}{if} (correcto)}
+\DoxyCodeLine{39             \{}
+\DoxyCodeLine{40                 \textcolor{keywordtype}{int} num1 = 1;}
+\DoxyCodeLine{41                 \textcolor{keywordtype}{string} update = \textcolor{stringliteral}{"update Usuarios set confirmado='"} + num1 + \textcolor{stringliteral}{"' where email='"} + dirCorreo + \textcolor{stringliteral}{"' and numconfir='"} + numInt + \textcolor{stringliteral}{"'"};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43                 SqlCommand comandoUpdate = \textcolor{keyword}{new} SqlCommand(update, ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_a1932eb53bebc0d2002cc3c40e21f9385}{conexion}});}
+\DoxyCodeLine{44                 comandoUpdate.ExecuteNonQuery();}
+\DoxyCodeLine{45                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}{lblSucces}}.Visible = \textcolor{keyword}{true};}
+\DoxyCodeLine{46                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_a36dc790fef42876a20f279fac79ec0db}{HyperLink1}}.NavigateUrl = \textcolor{stringliteral}{"~/Inicio.aspx?correo="}+dirCorreo;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48             \}}
+\DoxyCodeLine{49             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{50             \{}
+\DoxyCodeLine{51                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_a356770e3d6653a1bfc13c855989a858b}{lblError}}.Visible = \textcolor{keyword}{true};}
+\DoxyCodeLine{52                 \mbox{\hyperlink{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}{lblSucces}}.Visible = \textcolor{keyword}{false};}
+\DoxyCodeLine{53             \}}
+\DoxyCodeLine{54             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{55         \}}
+
+\end{DoxyCode}
+
+
+Hace referencia a acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+cerrar\+Conexion(), acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+conectar(), acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+conexion, webprueba.\+Confirmar.\+Hyper\+Link1, webprueba.\+Confirmar.\+lbl\+Error y webprueba.\+Confirmar.\+lbl\+Succes.
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}\label{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!Page\_Unload@{Page\_Unload}}
+\index{Page\_Unload@{Page\_Unload}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{Page\_Unload()}{Page\_Unload()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void webprueba.\+Confirmar.\+Page\+\_\+\+Unload (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definición en la línea 56 del archivo Confirmar.\+aspx.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57         \{}
+\DoxyCodeLine{58             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{59         \}}
+
+\end{DoxyCode}
+
+
+Hace referencia a acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+cerrar\+Conexion().
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}\label{classwebprueba_1_1_confirmar_a0e04921adedeb203078699131ca958b0}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!Page\_Unload@{Page\_Unload}}
+\index{Page\_Unload@{Page\_Unload}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{Page\_Unload()}{Page\_Unload()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void webprueba.\+Confirmar.\+Page\+\_\+\+Unload (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definición en la línea 56 del archivo Confirmar.\+aspx.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57         \{}
+\DoxyCodeLine{58             ac.\mbox{\hyperlink{classacceso_datos_s_q_l1_1_1accesodatos_s_q_l_ad3ba7760f992cfc9277b05093b661115}{cerrarConexion}}();}
+\DoxyCodeLine{59         \}}
+
+\end{DoxyCode}
+
+
+Hace referencia a acceso\+Datos\+S\+Q\+L1.\+accesodatos\+S\+Q\+L.\+cerrar\+Conexion().
+
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a4f6e23fc2d700229b3eecbabe696393c}\label{classwebprueba_1_1_confirmar_a4f6e23fc2d700229b3eecbabe696393c}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!form1@{form1}}
+\index{form1@{form1}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{form1}{form1}}
+{\footnotesize\ttfamily System Web UI Html\+Controls global.\+Html\+Form webprueba.\+Confirmar.\+form1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+form1 control. 
+
+Auto-\/generated field. To modify move field declaration from designer file to code-\/behind file. 
+
+Definición en la línea 22 del archivo Confirmar.\+aspx.\+designer.\+cs.
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a36dc790fef42876a20f279fac79ec0db}\label{classwebprueba_1_1_confirmar_a36dc790fef42876a20f279fac79ec0db}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!HyperLink1@{HyperLink1}}
+\index{HyperLink1@{HyperLink1}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{HyperLink1}{HyperLink1}}
+{\footnotesize\ttfamily System Web UI Web\+Controls global.\+Hyper\+Link webprueba.\+Confirmar.\+Hyper\+Link1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Hyper\+Link1 control. 
+
+Auto-\/generated field. To modify move field declaration from designer file to code-\/behind file. 
+
+Definición en la línea 49 del archivo Confirmar.\+aspx.\+designer.\+cs.
+
+
+
+Referenciado por webprueba.\+Confirmar.\+Page\+\_\+\+Load().
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_a356770e3d6653a1bfc13c855989a858b}\label{classwebprueba_1_1_confirmar_a356770e3d6653a1bfc13c855989a858b}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!lblError@{lblError}}
+\index{lblError@{lblError}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{lblError}{lblError}}
+{\footnotesize\ttfamily System Web UI Web\+Controls global.\+Label webprueba.\+Confirmar.\+lbl\+Error\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+lbl\+Error control. 
+
+Auto-\/generated field. To modify move field declaration from designer file to code-\/behind file. 
+
+Definición en la línea 40 del archivo Confirmar.\+aspx.\+designer.\+cs.
+
+
+
+Referenciado por webprueba.\+Confirmar.\+Page\+\_\+\+Load().
+
+\mbox{\Hypertarget{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}\label{classwebprueba_1_1_confirmar_ad8c4c024a1344980ca8d632b482a2691}} 
+\index{webprueba.Confirmar@{webprueba.Confirmar}!lblSucces@{lblSucces}}
+\index{lblSucces@{lblSucces}!webprueba.Confirmar@{webprueba.Confirmar}}
+\subsubsection{\texorpdfstring{lblSucces}{lblSucces}}
+{\footnotesize\ttfamily System Web UI Web\+Controls global.\+Label webprueba.\+Confirmar.\+lbl\+Succes\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+lbl\+Succes control. 
+
+Auto-\/generated field. To modify move field declaration from designer file to code-\/behind file. 
+
+Definición en la línea 31 del archivo Confirmar.\+aspx.\+designer.\+cs.
+
+
+
+Referenciado por webprueba.\+Confirmar.\+Page\+\_\+\+Load().
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Proyecto\+H\+A\+D\+S1/webprueba/\mbox{\hyperlink{_proyecto_h_a_d_s1_2webprueba_2_confirmar_8aspx_8cs}{Confirmar.\+aspx.\+cs}}\item 
+Proyecto\+H\+A\+D\+S1/webprueba/\mbox{\hyperlink{_proyecto_h_a_d_s1_2webprueba_2_confirmar_8aspx_8designer_8cs}{Confirmar.\+aspx.\+designer.\+cs}}\end{DoxyCompactItemize}
